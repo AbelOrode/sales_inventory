@@ -309,9 +309,9 @@
 
             <!-- Container Fluid-->
             <div class="container-fluid" id="container-wrapper">
-                <div id="app">
+
                     <router-view></router-view>
-                </div>
+
             </div>
             <!---Container Fluid-->
         </div>
