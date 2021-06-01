@@ -10,7 +10,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Register</h1>
                                     </div>
-                                    <form>
+                                    <form class="user" @submit.prevent="">
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="exampleInputFirstName" placeholder="First Name">
                                         </div>
