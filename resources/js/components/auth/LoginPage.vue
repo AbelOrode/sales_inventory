@@ -55,6 +55,12 @@
     import axios from 'axios';
     import User from '.././../Helper/User';
     export default {
+        created(){
+            ///This method prevents access to the loginpage as long as a user is logged in.
+            if (User.loggedIn()){
+                this.$router.push({name: 'Homepage'})
+            }
+        },
         name: "LoginPage",
         data(){
             return{
@@ -69,9 +75,19 @@
                 axios.post('/api/auth/login', this.form)
                     .then(res => {
                         User.resAfterLogin(res);
+                        Toast.fire({
+                            icon: 'success',
+                            title: "Signed in successfully"
+                        })
                         this.$router.push({ name: 'Homepage'})
                     })
-                    .catch(error => console.log(error.response.data));
+                    .catch(error => this.errors = error.response.data.errors)
+                    .catch(
+                        Toast.fire({
+                            icon: 'warning',
+                            title: 'Invalid Email or Password'
+                        })
+                    )
             }
         }
     }

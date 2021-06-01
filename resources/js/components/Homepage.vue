@@ -346,7 +346,14 @@
 </template>
 
 <script>
+    import User from "../Helper/User";
+
     export default {
+        created(){
+            if (!User.loggedIn()){
+                this.$router.push({name: '/'});
+            }
+        },
         name: "Homepage"
     }
 </script>

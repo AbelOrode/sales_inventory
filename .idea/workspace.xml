@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="369bf459-83da-4041-b62a-060dd8e38abb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Helper/AppStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Helper/AppStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Helper/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Helper/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Homepage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Homepage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/auth/LoginPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/auth/LoginPage.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +184,7 @@
       <updated>1621808612811</updated>
       <workItem from="1621808616246" duration="2508000" />
       <workItem from="1621905927641" duration="42865000" />
-      <workItem from="1622546576890" duration="1586000" />
+      <workItem from="1622546576890" duration="7999000" />
     </task>
     <servers />
   </component>
