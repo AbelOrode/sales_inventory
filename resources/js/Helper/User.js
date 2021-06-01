@@ -25,7 +25,7 @@ class User{
 
     name(){
         if(this.loggedIn()){
-            return localStorage.getItem('user');
+            return localStorage.getItem('name');
         }
     }
 

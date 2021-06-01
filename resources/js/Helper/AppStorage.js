@@ -1,22 +1,22 @@
 class AppStorage{
 
-    //This class saves the generated token to the client's local storage
+
     storeToken(token){
         localStorage.setItem('token', token);
     }
 
-    storeUser(){
-        localStorage.setItem('user', user);
+    storeUser(name){
+        localStorage.setItem('name', name);
     }
 
-    store(token, user){
+    store(token, name){
         this.storeToken(token);
-        this.storeUser(user);
+        this.storeUser(name);
     }
 
     clear(){
         localStorage.removeItem('token');
-        localStorage.removeItem('user')
+        localStorage.removeItem('name')
     }
 
     getToken(){
@@ -24,7 +24,7 @@ class AppStorage{
     }
 
     getUser(){
-        localStorage.getItem(user);
+        localStorage.getItem(name);
     }
 
 }export default AppStorage = new AppStorage();
