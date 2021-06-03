@@ -41,6 +41,7 @@
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
                                     <span>Since last years</span>
+                                    <router-view></router-view>
                                 </div>
                             </div>
                             <div class="col-auto">
@@ -340,6 +341,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid" id="container-wrapper">
+
+            <router-view></router-view>
 
         </div>
     </div>

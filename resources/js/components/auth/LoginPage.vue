@@ -15,12 +15,12 @@
                                             <input type="email" class="form-control" id="exampleInputEmail"
                                                    aria-describedby="emailHelp"
                                                    placeholder="Enter Email Address" v-model="form.email" required>
-                                            <small class="text-danger" v-if="errors.email">{{ errors.email[0] }}</small>
+
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control" id="exampleInputPassword"
                                                    placeholder="Password" v-model="form.password" required>
-                                            <small class="text-danger" v-if="errors.password">{{ errors.password[0] }}</small>
+
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small"
@@ -31,7 +31,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-outline-primary btn-block">Login</button>
+                                            <button type="submit" class="btn btn-outline-warning text-black-50 btn-block">Login</button>
                                         </div>
                                     </form>
                                     <hr>
@@ -58,7 +58,6 @@
     import User from '.././../Helper/User';
     export default {
         created(){
-            ///This method prevents access to the loginpage as long as a user is logged in.
             if (User.loggedIn()){
                 this.$router.push({name: 'Homepage'})
             }
@@ -77,7 +76,7 @@
             login(){
                 axios.post('/api/auth/login', this.form)
                     .then(res => {
-                        User.resAfterLogin(res);
+                        User.resAfterLogin(res)
                         Toast.fire({
                             icon: 'success',
                             title: "Signed in successfully"

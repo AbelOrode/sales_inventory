@@ -8,15 +8,16 @@ class User{
         const name = result.data.name;
         if (Token.isValid(access_token)){
             AppStorage.store(access_token, name);
-            //console.log(access_token, name);
+
         }
     }
 
     hasToken(){
         const storeToken = localStorage.getItem('token');
         if(storeToken){
-            return Token.isValid(storeToken) ? true : false;
+            return Token.isValid(storeToken)? true : false
         }
+        false
     }
 
     loggedIn(){
@@ -25,7 +26,7 @@ class User{
 
     name(){
         if(this.loggedIn()){
-            return localStorage.getItem('name');
+            return localStorage.getItem('user');
         }
     }
 

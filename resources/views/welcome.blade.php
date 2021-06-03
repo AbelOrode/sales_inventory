@@ -18,7 +18,9 @@
 <body id="page-top">
 <div id="app">
 <div id="wrapper">
+
     <!-- Sidebar -->
+    <nav id="sidebar" style="display: none" v-show="$route.path === '/' || $route.path === '/register' || $route.path === '/forget' ? false : true"> <!-- THis line of code checks if the current url link is in the homepage, register page or forget page and then disables the sideba navigation -->
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon">
@@ -117,11 +119,13 @@
         <hr class="sidebar-divider">
         <div class="version" id="version-ruangadmin"></div>
     </ul>
+    </nav>
     <!-- Sidebar -->
+
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
             <!-- TopBar -->
-            <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+            <nav id="topbar" class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" style="display: none"  v-show="$route.path === '/' || $route.path === '/register' || $route.path === '/forget' ? false : true">
                 <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -278,11 +282,11 @@
                     </li>
                     <div class="topbar-divider d-none d-sm-block"></div>
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                        <router-link to="/logout"    class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <img class="img-profile rounded-circle" src="{{ asset('resource_backend/img/boy.png') }}" style="max-width: 60px">
-                            <span class="ml-2 d-none d-lg-inline text-white small">Abel Orode</span>
-                        </a>
+                            <span class="ml-2 d-none d-lg-inline text-white small">Logout</span>
+                        </router-link>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -330,6 +334,14 @@
 <script src="{{ asset('resource_backend/js/ruang-admin.min.js') }}"></script>
 <script src="{{ asset('resource_backend/vendor/chart.js/Chart.min.js') }}"></script>
 <script src="{{ asset('resource_backend/js/demo/chart-area-demo.js') }}"></script>
+<script type="text/javascript">
+    let token = localStorage.getItem('token');
+
+    if(token){
+        $("#sidebar").css("display", "");
+        $("#topbar").css("display", "");
+    }
+</script>
 </body>
 
 </html>

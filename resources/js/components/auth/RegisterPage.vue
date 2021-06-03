@@ -10,34 +10,25 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Register</h1>
                                     </div>
-                                    <form class="user" @submit.prevent="">
+                                    <form class="user" @submit.prevent="register">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="exampleInputFirstName" placeholder="First Name">
+                                            <input type="text" class="form-control" placeholder="Enter Name" v-model ="form.name">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="exampleInputLastName" placeholder="Last Name">
+                                            <input type="email" class="form-control" aria-describedby="emailHelp"
+                                                   placeholder="Enter Email Address" v-model="form.email">
                                         </div>
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp"
-                                                   placeholder="Enter Email Address">
+                                            <input type="password" class="form-control" placeholder="Password" v-model="form.password">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" class="form-control"
+                                                   placeholder="Confirm Password" v-model="form.password_confirmation">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="exampleInputPasswordRepeat"
-                                                   placeholder="Confirm Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                            <button type="submit" class="btn btn-outline-warning text-black-50 btn-block">Register</button>
                                         </div>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Register with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                        </a>
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -55,9 +46,45 @@
     </div>
 </template>
 
-<script>
+<script  type="text/javascript">
+    import axios from 'axios';
+    import User from '.././../Helper/User';
+
     export default {
-        name: "RegisterPage"
+
+        created() {
+            if (User.loggedIn()){
+                this.$router.push({name: 'Homepage'})
+            }
+        },
+        name: 'RegisterPage',
+        data(){
+            return{
+                form:{
+                    name: null,
+                    email:null,
+                    password: null,
+                    password_confirmation: null
+                },
+                errors:{}
+            }
+        },
+        methods:{
+            register(){
+                axios.post('/api/auth/register', this.form)
+                    .then(res =>{
+                        User.resAfterLogin(res)
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Registration successful' + " " + "Welcome " + User.getUser()
+
+
+                        })
+                        this.$router.push({ name: 'Homepage'})
+                    })
+                    .catch(error => this.errors = error.response.data.errors)
+            }
+        }
     }
 </script>
 
