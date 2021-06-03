@@ -2588,6 +2588,77 @@ var AppStorage = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./resources/js/Helper/Notification.js":
+/*!*********************************************!*\
+  !*** ./resources/js/Helper/Notification.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Notification = /*#__PURE__*/function () {
+  function Notification() {
+    _classCallCheck(this, Notification);
+  }
+
+  _createClass(Notification, [{
+    key: "success",
+    value: function success() {
+      new Noty({
+        type: 'success',
+        layout: 'topRight',
+        text: 'Successfully Done!',
+        timeout: '1000'
+      }).show();
+    }
+  }, {
+    key: "alert",
+    value: function alert() {
+      new Noty({
+        type: 'alert',
+        layout: 'topRight',
+        text: 'Are you sure?',
+        timeout: '1000'
+      }).show();
+    }
+  }, {
+    key: "warning",
+    value: function warning() {
+      new Noty({
+        type: 'warning',
+        layout: 'topRight',
+        text: 'Oopses!',
+        timeout: '1000'
+      }).show();
+    }
+  }, {
+    key: "error",
+    value: function error() {
+      new Noty({
+        type: 'alert',
+        layout: 'topRight',
+        text: 'Something went wrong?',
+        timeout: '1000'
+      }).show();
+    }
+  }]);
+
+  return Notification;
+}();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Notification = new Notification());
+
+/***/ }),
+
 /***/ "./resources/js/Helper/Token.js":
 /*!**************************************!*\
   !*** ./resources/js/Helper/Token.js ***!
@@ -2728,13 +2799,15 @@ var User = /*#__PURE__*/function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _Helper_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Helper/User */ "./resources/js/Helper/User.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Helper_Notification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Helper/Notification */ "./resources/js/Helper/Notification.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
 /** Importing statements  **/
+
 
 
 
@@ -2742,26 +2815,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /** Use Statements **/
 
-vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
+vue__WEBPACK_IMPORTED_MODULE_4__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_5__.default);
 window.User = _Helper_User__WEBPACK_IMPORTED_MODULE_1__.default;
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
+window.Notification = _Helper_Notification__WEBPACK_IMPORTED_MODULE_2__.default;
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__.default({
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__.routes,
   mode: 'history'
 });
-window.Swal = (sweetalert2__WEBPACK_IMPORTED_MODULE_2___default());
-var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().mixin({
+window.Swal = (sweetalert2__WEBPACK_IMPORTED_MODULE_3___default());
+var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
   timer: 3000,
   timerProgressBar: true,
   onOpen: function onOpen(toast) {
-    toast.addEventListener('mouseenter', (sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().stopTimer));
-    toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_2___default().resumeTimer());
+    toast.addEventListener('mouseenter', (sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().stopTimer));
+    toast.addEventListener('mouseleave', sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().resumeTimer());
   }
 });
 window.Toast = Toast;
-var app = new vue__WEBPACK_IMPORTED_MODULE_3__.default({
+var app = new vue__WEBPACK_IMPORTED_MODULE_4__.default({
   el: '#app',
   router: router
 });

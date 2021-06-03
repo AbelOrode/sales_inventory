@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import {routes} from './routes';
 import Vue from 'vue';
 import User from './Helper/User';
+import Notification from './Helper/Notification';
 import Swal from 'sweetalert2'
 
 
@@ -13,6 +14,8 @@ Vue.use(VueRouter);
 
 
 window.User = User;
+
+window.Notification = Notification;
 const router = new VueRouter({
     routes,
     mode: 'history'
