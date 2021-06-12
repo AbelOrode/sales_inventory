@@ -48,16 +48,16 @@
 
 <script  type="text/javascript">
     import axios from 'axios';
-    import User from '.././../Helper/User';
+    import User from '.././../Helper/User.js';
 
     export default {
-
+        name: 'RegisterPage',
         created() {
             if (User.loggedIn()){
                 this.$router.push({name: 'Homepage'})
             }
         },
-        name: 'RegisterPage',
+
         data(){
             return{
                 form:{
