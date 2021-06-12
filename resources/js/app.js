@@ -7,6 +7,7 @@ import User from './Helper/User';
 import Notification from './Helper/Notification';
 import Swal from 'sweetalert2';
 import VueNoty from 'vuejs-noty'
+import axios from 'axios';
 
 
 
@@ -14,15 +15,16 @@ import VueNoty from 'vuejs-noty'
 Vue.use(VueRouter);
 Vue.use(VueNoty)
 
-window.User = User;
 
+
+window.User = User;
 window.Notification = Notification;
 window.Swal = Swal;
+
 const router = new VueRouter({
     routes,
     mode: 'history'
 });
-
 
 
 const Toast = Swal.mixin({
@@ -36,10 +38,11 @@ const Toast = Swal.mixin({
         toast.addEventListener('mouseleave', Swal.resumeTimer())
     }
 })
-
 window.Toast = Toast;
 
 const app = new Vue({
     el: '#app',
     router
 });
+
+

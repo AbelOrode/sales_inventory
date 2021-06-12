@@ -26,7 +26,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Action</h6>
                     <router-link class="collapse-item" to="/addStaff">Add New Employee</router-link>
-                    <router-link class="collapse-item" to="/">Employee Statistics</router-link>
+                    <router-link class="collapse-item" to="/allStaff">Employee Statistics</router-link>
                 </div>
             </div>
 

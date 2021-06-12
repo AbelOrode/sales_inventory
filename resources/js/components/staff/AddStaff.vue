@@ -36,7 +36,7 @@
                                         <div class="form-row  mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="tel" class="form-control" aria-describedby="contact"
+                                                    <input type="text" class="form-control" aria-describedby="contact"
                                                            placeholder="Phone Number" v-model="form.contact">
                                                     <small class="text-danger" v-if="errors.contact">{{ errors.contact[0]}}</small>
                                                 </div>
@@ -78,7 +78,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <img src="form.image" style="height: 40px; width: 40px">
+                                                    <img :src="form.image" style="height: 40px; width: 40px">
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
 </template>
 
 <script type="text/javascript">
-
+    import axios from 'axios'
     import User from '../../Helper/User.js';
     import Notification from '../../Helper/Notification.js';
 
@@ -131,15 +131,25 @@
         },
         methods:{
             onFileSelected(event){
-                let file = event.target.files[0];
+                let file = event.target.files[0]; // The event is an array collection that gives a description of uploaded file.
                 if (file.size > 1048770){
                     this.$noty.error("The attachment size exceeds the allowable limit")
                 }else {
-                    console.log(event);
+                    let reader = new FileReader(); //
+                    reader.onload = event =>{
+                        this.form.image = event.target.result
+                        //console.log(event.target.result)
+                    };
+                    reader.readAsDataURL(file)
                 }
             },
             addStaff(){
-
+                axios.post('/api/staff', this.form)
+                    .then(() =>{
+                        this.$router.push({name: 'allStaff'})
+                        this.$noty.success("Record created successfully")
+                    })
+                    .catch(error =>this.errors = error.response.data.errors)
             }
         }
     }

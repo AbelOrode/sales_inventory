@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use \Validator;
 use Illuminate\Http\Request;
 
@@ -79,5 +80,28 @@ class AuthController extends Controller
             'email' => auth()->user()->email,
             'user_id' => auth()->user()->id
         ]);
+    }
+
+
+
+
+    //Custom API Functions
+    public function getUser($id){
+        $user = User::findOrFail($id);
+        return response()->json($user);
+    }
+
+    public function getAllUsers(){
+        $allUsers = DB::table('users')->get();
+        return response()->json($allUsers);
+    }
+
+    public function deleteAUser($id){
+        $user = User::findOrFail($id)->delete();
+        return response()->json($user." Record deleted successfully");
+    }
+
+    public function deleteAllUsers(){
+        DB::table('users')->delete();
     }
 }

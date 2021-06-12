@@ -2535,8 +2535,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Helper_User_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Helper/User.js */ "./resources/js/Helper/User.js");
-/* harmony import */ var _Helper_Notification_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Helper/Notification.js */ "./resources/js/Helper/Notification.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Helper_User_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Helper/User.js */ "./resources/js/Helper/User.js");
+/* harmony import */ var _Helper_Notification_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Helper/Notification.js */ "./resources/js/Helper/Notification.js");
 //
 //
 //
@@ -2640,12 +2642,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AddStaff",
   created: function created() {
-    if (!_Helper_User_js__WEBPACK_IMPORTED_MODULE_0__.default.loggedIn()) {
+    if (!_Helper_User_js__WEBPACK_IMPORTED_MODULE_1__.default.loggedIn()) {
       this.$router.push({
         name: '/'
       });
@@ -2668,15 +2671,35 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     onFileSelected: function onFileSelected(event) {
-      var file = event.target.files[0];
+      var _this = this;
+
+      var file = event.target.files[0]; // The event is an array collection that gives a description of uploaded file.
 
       if (file.size > 1048770) {
         this.$noty.error("The attachment size exceeds the allowable limit");
       } else {
-        console.log(event);
+        var reader = new FileReader(); //
+
+        reader.onload = function (event) {
+          _this.form.image = event.target.result; //console.log(event.target.result)
+        };
+
+        reader.readAsDataURL(file);
       }
     },
-    addStaff: function addStaff() {}
+    addStaff: function addStaff() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/staff', this.form).then(function () {
+        _this2.$router.push({
+          name: 'allStaff'
+        });
+
+        _this2.$noty.success("Record created successfully");
+      })["catch"](function (error) {
+        return _this2.errors = error.response.data.errors;
+      });
+    }
   }
 });
 
@@ -3004,16 +3027,19 @@ var User = /*#__PURE__*/function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _Helper_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Helper/User */ "./resources/js/Helper/User.js");
 /* harmony import */ var _Helper_Notification__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Helper/Notification */ "./resources/js/Helper/Notification.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var vuejs_noty__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vuejs-noty */ "./node_modules/vuejs-noty/dist/vuejs-noty.js");
 /* harmony import */ var vuejs_noty__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vuejs_noty__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
 /** Importing statements  **/
+
 
 
 
@@ -3023,12 +3049,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /** Use Statements **/
 
-vue__WEBPACK_IMPORTED_MODULE_5__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_6__.default);
-vue__WEBPACK_IMPORTED_MODULE_5__.default.use((vuejs_noty__WEBPACK_IMPORTED_MODULE_4___default()));
+vue__WEBPACK_IMPORTED_MODULE_6__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_7__.default);
+vue__WEBPACK_IMPORTED_MODULE_6__.default.use((vuejs_noty__WEBPACK_IMPORTED_MODULE_4___default()));
 window.User = _Helper_User__WEBPACK_IMPORTED_MODULE_1__.default;
 window.Notification = _Helper_Notification__WEBPACK_IMPORTED_MODULE_2__.default;
 window.Swal = (sweetalert2__WEBPACK_IMPORTED_MODULE_3___default());
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__.default({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_7__.default({
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__.routes,
   mode: 'history'
 });
@@ -3044,7 +3070,7 @@ var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_3___default().mixin({
   }
 });
 window.Toast = Toast;
-var app = new vue__WEBPACK_IMPORTED_MODULE_5__.default({
+var app = new vue__WEBPACK_IMPORTED_MODULE_6__.default({
   el: '#app',
   router: router
 });
@@ -3077,7 +3103,7 @@ var Homepage = __webpack_require__(/*! ./components/Homepage.vue */ "./resources
 
 var addStaff = __webpack_require__(/*! ./components/staff/AddStaff.vue */ "./resources/js/components/staff/AddStaff.vue").default;
 
-var allStaff = __webpack_require__(/*! ./components/staff/Index */ "./resources/js/components/staff/Index.vue").default;
+var allStaff = __webpack_require__(/*! ./components/staff/Index.vue */ "./resources/js/components/staff/Index.vue").default;
 
 var routes = [{
   path: '/',
@@ -3102,11 +3128,11 @@ var routes = [{
 }, {
   path: '/addStaff',
   component: addStaff,
-  name: 'add-staff'
+  name: 'addStaff'
 }, {
-  path: '/allStaff',
+  path: '/staff',
   component: allStaff,
-  name: 'all-staff'
+  name: 'allStaff'
 }];
 
 /***/ }),
@@ -8666,7 +8692,7 @@ var render = function() {
                               ],
                               staticClass: "form-control",
                               attrs: {
-                                type: "tel",
+                                type: "text",
                                 "aria-describedby": "contact",
                                 placeholder: "Phone Number"
                               },
@@ -8871,10 +8897,17 @@ var render = function() {
                             : _vm._e()
                         ]),
                         _vm._v(" "),
-                        _vm._m(1)
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("img", {
+                              staticStyle: { height: "40px", width: "40px" },
+                              attrs: { src: _vm.form.image }
+                            })
+                          ])
+                        ])
                       ]),
                       _vm._v(" "),
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("hr")
                     ]
@@ -8898,19 +8931,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center" }, [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
         _vm._v("Add New Employee")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("img", {
-          staticStyle: { height: "40px", width: "40px" },
-          attrs: { src: "form.image" }
-        })
       ])
     ])
   },

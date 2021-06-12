@@ -12,7 +12,7 @@ let Homepage = require('./components/Homepage.vue').default;
 
 //Staff or Employee components
 let addStaff = require('./components/staff/AddStaff.vue').default;
-let allStaff = require('./components/staff/Index').default;
+let allStaff = require('./components/staff/Index.vue').default;
 
 
 export const routes = [
@@ -21,7 +21,7 @@ export const routes = [
     {path: '/forget', component: ForgetPage, name: 'forget'},
     {path: '/logout', component: Logout, name: 'logout'},
     {path: '/homepage', component: Homepage, name: 'Homepage'},
-    {path: '/addStaff', component: addStaff, name: 'add-staff'},
-    {path: '/allStaff', component: allStaff, name: 'all-staff'},
+    {path: '/addStaff', component: addStaff, name: 'addStaff'},
+    {path: '/staff', component: allStaff, name: 'allStaff'},
 
 ]
