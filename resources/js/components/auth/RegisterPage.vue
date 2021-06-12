@@ -48,7 +48,7 @@
 
 <script  type="text/javascript">
     import axios from 'axios';
-    import User from '.././../Helper/User.js';
+    import User from '../../Helper/User.js';
 
     export default {
         name: 'RegisterPage',
@@ -77,8 +77,6 @@
                         Toast.fire({
                             icon: 'success',
                             title: 'Registration successful' + " " + "Welcome " + User.getUser()
-
-
                         })
                         this.$router.push({ name: 'Homepage'})
                     })

@@ -5,23 +5,25 @@ import {routes} from './routes';
 import Vue from 'vue';
 import User from './Helper/User';
 import Notification from './Helper/Notification';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import VueNoty from 'vuejs-noty'
 
 
 
 /** Use Statements **/
 Vue.use(VueRouter);
-
+Vue.use(VueNoty)
 
 window.User = User;
 
 window.Notification = Notification;
+window.Swal = Swal;
 const router = new VueRouter({
     routes,
     mode: 'history'
 });
 
-window.Swal = Swal;
+
 
 const Toast = Swal.mixin({
     toast: true,

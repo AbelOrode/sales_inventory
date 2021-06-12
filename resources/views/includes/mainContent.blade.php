@@ -156,6 +156,8 @@
                 </div>
             </li>
             <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Work on the logout section to remove generic dashboard content-->
             <li class="nav-item dropdown no-arrow">
                 <router-link to="/logout"    class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown"
                              aria-haspopup="true" aria-expanded="false">

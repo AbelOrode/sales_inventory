@@ -1,5 +1,4 @@
 class Notification {
-
     success(){
         new Noty({
             type: 'success',
@@ -35,7 +34,14 @@ class Notification {
         }).show();
     }
 
-
+    image_validate(){
+        new Noty({
+            type: 'error',
+            layout: 'topRight',
+            text: 'Image should be less than 1MB',
+            timeout: '1000',
+        }).show();
+    }
 
 }
 export default Notification = new Notification();

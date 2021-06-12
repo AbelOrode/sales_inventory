@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="369bf459-83da-4041-b62a-060dd8e38abb" name="Default Changelist" comment="">
+    <list default="true" id="369bf459-83da-4041-b62a-060dd8e38abb" name="Default Changelist" comment="Successfully Added Employee/Staff Module">
+      <change afterPath="$PROJECT_DIR$/app/Models/Staff.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_12_092243_create_staff_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/staff/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sales_inventory.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sales_inventory.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Helper/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Helper/Notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Homepage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Homepage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/auth/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/auth/RegisterPage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/staff/AddStaff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/staff/AddStaff.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/mainContent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/mainContent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +51,9 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="sales_inventory" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -46,7 +65,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
@@ -157,6 +176,7 @@
       <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectId" id="1sxK4yPhqOGD18UgqmAntvlnMUk" />
@@ -164,7 +184,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../API_Testing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
@@ -180,11 +200,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Built-in Web Server.Dev-Server">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="Dev-Server" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8000">
+      <CommandLine workingDirectory="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="LaunchBrowser.Before.Run" url="http://127.0.0.1" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="PHP Built-in Web Server.Dev-Server" />
+      <item itemvalue="PHPUnit.phpunit.xml" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -202,7 +232,8 @@
       <workItem from="1622645839682" duration="12215000" />
       <workItem from="1622852324376" duration="150000" />
       <workItem from="1622926397283" duration="1215000" />
-      <workItem from="1623446190722" duration="9382000" />
+      <workItem from="1623446190722" duration="9642000" />
+      <workItem from="1623487053285" duration="12809000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully Added Employee/Staff Module">
       <created>1623449414572</created>

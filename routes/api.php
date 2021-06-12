@@ -18,3 +18,5 @@ Route::group([
 
 
 });
+
+Route::apiResource('/allStaff', 'Api/StaffController');
