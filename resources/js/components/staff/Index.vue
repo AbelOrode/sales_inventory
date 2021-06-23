@@ -8,8 +8,11 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="d-flex">
-                                        <router-link to="/addStaff" class="btn btn-outline-secondary"> Add Employee</router-link>
+                                        <router-link to="/addStaff" class="btn btn-primary"> Add Employee</router-link>
                                     </div>
+                                    <br>
+                                    <br>
+                                    <input type="text" class="form-control" style="width: 300px" placeholder="Search Employee" v-model="searchTerm">
                                     <hr>
                                     <div class="row">
                                         <div class="col-lg-12 mb-4">
@@ -31,7 +34,7 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr v-for="employee in employees" :key="employee.id" class="text-center">
+                                                        <tr v-for="employee in filtersearch" :key="employee.id" class="text-center">
                                                             <td> {{ employee.name }} </td>
                                                             <td><img :src="employee.image" id="em_photo"></td>
                                                             <td>{{ employee.contact }}</td>
@@ -71,7 +74,15 @@
         },
         data(){
             return{
-                employees:[]
+                employees:[],
+                searchTerm: ''
+            }
+        },
+        computed:{
+            filtersearch(){
+                return this.employees.filter(employee =>{
+                    return employee.name.match(this.searchTerm)
+                })
             }
         },
         methods:{

@@ -2783,6 +2783,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_defineProperty({
   created: function created() {
@@ -2794,16 +2797,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      employees: []
+      employees: [],
+      searchTerm: ''
     };
+  },
+  computed: {
+    filtersearch: function filtersearch() {
+      var _this = this;
+
+      return this.employees.filter(function (employee) {
+        return employee.name.match(_this.searchTerm);
+      });
+    }
   },
   methods: {
     allEmployee: function allEmployee() {
-      var _this = this;
+      var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/staff/').then(function (_ref) {
         var data = _ref.data;
-        return _this.employees = data;
+        return _this2.employees = data;
       });
     }
   }
@@ -9169,7 +9182,7 @@ var render = function() {
                       _c(
                         "router-link",
                         {
-                          staticClass: "btn btn-outline-secondary",
+                          staticClass: "btn btn-primary",
                           attrs: { to: "/addStaff" }
                         },
                         [_vm._v(" Add Employee")]
@@ -9177,6 +9190,33 @@ var render = function() {
                     ],
                     1
                   ),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.searchTerm,
+                        expression: "searchTerm"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    staticStyle: { width: "300px" },
+                    attrs: { type: "text", placeholder: "Search Employee" },
+                    domProps: { value: _vm.searchTerm },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.searchTerm = $event.target.value
+                      }
+                    }
+                  }),
                   _vm._v(" "),
                   _c("hr"),
                   _vm._v(" "),
@@ -9197,7 +9237,7 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "tbody",
-                                _vm._l(_vm.employees, function(employee) {
+                                _vm._l(_vm.filtersearch, function(employee) {
                                   return _c(
                                     "tr",
                                     {
