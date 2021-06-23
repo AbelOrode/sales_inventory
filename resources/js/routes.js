@@ -22,6 +22,6 @@ export const routes = [
     {path: '/logout', component: Logout, name: 'logout'},
     {path: '/homepage', component: Homepage, name: 'Homepage'},
     {path: '/addStaff', component: addStaff, name: 'addStaff'},
-    {path: '/staff', component: allStaff, name: 'allStaff'},
+    {path: '/allStaff', component: allStaff, name: 'allStaff'},
 
 ]

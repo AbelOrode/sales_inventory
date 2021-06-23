@@ -71,7 +71,7 @@
         },
         methods:{
             register(){
-                axios.post('/api/auth/register', this.form)
+                axios.post('/api/auth/register/', this.form)
                     .then(res =>{
                         User.resAfterLogin(res)
                         Toast.fire({

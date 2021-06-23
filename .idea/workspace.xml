@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="369bf459-83da-4041-b62a-060dd8e38abb" name="Default Changelist" comment="Successfully Added Employee/Staff Module">
+      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/StaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/StaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/staff/AddStaff.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/staff/AddStaff.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/auth/RegisterPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/auth/RegisterPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/staff/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/staff/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,8 +169,9 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ApiPhase1" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RunDashboard">
@@ -220,7 +219,11 @@
       <workItem from="1622852324376" duration="150000" />
       <workItem from="1622926397283" duration="1215000" />
       <workItem from="1623446190722" duration="9642000" />
-      <workItem from="1623487053285" duration="25750000" />
+      <workItem from="1623487053285" duration="26439000" />
+      <workItem from="1623593639443" duration="1615000" />
+      <workItem from="1623842287241" duration="704000" />
+      <workItem from="1623918603866" duration="1259000" />
+      <workItem from="1624398661355" duration="4226000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully Added Employee/Staff Module">
       <created>1623449414572</created>
