@@ -71,7 +71,8 @@ class StaffController extends Controller
 
     public function show($id)
     {
-        //
+        $staff = Staff::findOrFail($id);
+        return response()->json($staff);
     }
 
 
@@ -83,12 +84,58 @@ class StaffController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $data = array();
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['contact'] = $request->contact;
+        $data['salary'] = $request->salary;
+        $data['address'] = $request->address;
+        $data['nid'] = $request->nid;
+        $data['join_date'] = $request->join_date;
+        $image = $request->newImage;
+
+        if($image){
+            $position = strpos($request->image, ';');
+            $sub = substr($request->image, 0, $position);
+            $extension = explode('/', $sub)[1];
+            $name = time().".".$extension;
+            $image = Image::make($request->image)->resize(240, 200); //Image intervention dependency
+            $upload_path = 'images/staff/';
+            $image_url = $upload_path.$name;
+            $success = $image->save($image_url);
+            if($success){
+                $data['image'] = $image_url;
+                $img = DB::table('staff')->where('id', $id)->first();
+                $img_path = $img->image;
+                $done = unlink($img_path);
+                $user = DB::table('staff')->where('id', $id)->update($data); // Upload new image to the database if old image has been modified
+            }else{
+                $oldPhoto = $request->image;
+                $data['image'] = $oldPhoto;
+                $user = DB::table('staff')->where('id', $id)->update($data);
+            }
+        }
     }
 
 
     public function destroy($id)
     {
-        //
+        $employee = Staff::findOrFail($id);
+        $photo = $employee->image;
+
+        if ($photo){
+            unlink($photo);
+            Staff::findOrFail($id)->delete();
+            return response()->json([
+                'status' => 1,
+                'message' => 'Record deleted successfully',
+            ], 201);
+        }else{
+            Staff::findOrFail($id)->delete();
+            return response()->json([
+                'status' => 0,
+                'message' => 'An error has occurred',
+            ], 404);
+        }
     }
 }

@@ -25,6 +25,7 @@
                                                     <table class="table align-items-center table-flush">
                                                         <thead class="thead-light">
                                                         <tr class="text-center">
+                                                            <th>S/N</th>
                                                             <th>Name</th>
                                                             <th>Image</th>
                                                             <th>Contact</th>
@@ -34,15 +35,17 @@
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        <tr v-for="employee in filtersearch" :key="employee.id" class="text-center">
+                                                        <tr v-for="(employee, index) in filtersearch" :key="employee.id" class="text-center">
+                                                            <td>{{ ++index }}</td>
                                                             <td> {{ employee.name }} </td>
                                                             <td><img :src="employee.image" id="em_photo"></td>
                                                             <td>{{ employee.contact }}</td>
                                                             <td>{{ employee.salary}}</td>
                                                            <td>{{ employee.join_date }}</td>
                                                             <td>
-                                                                <a href="#" class="btn btn-sm btn-outline-primary">Edit</a> &nbsp;
-                                                                <a href="#" class="btn btn-sm btn-outline-warning text-dark">Delete</a>
+
+                                                                <router-link :to="{name: 'editStaff', params:{id:employee.id}}" class="btn btn-sm btn-outline-primary">Edit</router-link> &nbsp;
+                                                                <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-outline-warning text-dark">Delete</a>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -89,6 +92,34 @@
             allEmployee(){
                 axios.get('/api/staff/')
                     .then(({data}) => (this.employees = data))
+            },
+            deleteEmployee(id){
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!',
+                }).then((result) =>{
+                    if (result.value){
+                        axios.delete('/api/staff/'+id)
+                            .then(() => {
+                                this.employees = this.employees.filter(employee => {
+                                    return employee.id != id;
+                                })
+                            })
+                            .catch(() => {
+                                this.$router.push({name: 'allStaff'})
+                            })
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
             }
         },
         created() {
