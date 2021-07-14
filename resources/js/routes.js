@@ -15,6 +15,10 @@ let addStaff = require('./components/staff/AddStaff.vue').default;
 let allStaff = require('./components/staff/Index.vue').default;
 let editStaff = require('./components/staff/editStaff.vue').default;
 
+//Supplier
+let storeSupplier = require('./components/supplier/create.vue').default;
+let allSuppliers = require('./components/supplier/index.vue').default;
+let editSupplier = require('./components/supplier/edit.vue').default;
 
 export const routes = [
     {path: '/', component: LoginPage, name: '/'},
@@ -22,8 +26,14 @@ export const routes = [
     {path: '/forget', component: ForgetPage, name: 'forget'},
     {path: '/logout', component: Logout, name: 'logout'},
     {path: '/homepage', component: Homepage, name: 'Homepage'},
+
+
     {path: '/addStaff', component: addStaff, name: 'addStaff'},
     {path: '/allStaff', component: allStaff, name: 'allStaff'},
-    {path: '/edit-staff/:id', component: editStaff, name: 'editStaff'}
+    {path: '/edit-staff/:id', component: editStaff, name: 'editStaff'},
+
+    {path: '/supplier', component: storeSupplier, name: 'createSupplier'},
+    {path: '/suppliers', component: allSuppliers, name: 'allSuppliers'},
+    {path: '/supplier/:id', component: editSupplier, name: 'editSupplier'}
 
 ]

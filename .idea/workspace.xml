@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="369bf459-83da-4041-b62a-060dd8e38abb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Supplier.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_07_11_154805_create_suppliers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/staff/editStaff.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/supplier/create.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/supplier/edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/supplier/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/StaffController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/StaffController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/staff/1623524268.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SupplierController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/staff/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/staff/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +55,7 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="sales_inventory: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="staff: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="suppliers: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -277,7 +270,7 @@
       <workItem from="1623918603866" duration="1259000" />
       <workItem from="1624398661355" duration="9292000" />
       <workItem from="1625763329297" duration="1995000" />
-      <workItem from="1625909152715" duration="10514000" />
+      <workItem from="1625909152715" duration="25351000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully Added Employee/Staff Module">
       <created>1623449414572</created>
