@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="369bf459-83da-4041-b62a-060dd8e38abb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/supplier/create.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/supplier/edit.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/supplier/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/product/edit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/product/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/SupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/SupplierController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -270,7 +266,9 @@
       <workItem from="1623918603866" duration="1259000" />
       <workItem from="1624398661355" duration="9292000" />
       <workItem from="1625763329297" duration="1995000" />
-      <workItem from="1625909152715" duration="25351000" />
+      <workItem from="1625909152715" duration="25553000" />
+      <workItem from="1626270661065" duration="370000" />
+      <workItem from="1626271085680" duration="1865000" />
     </task>
     <task id="LOCAL-00001" summary="Successfully Added Employee/Staff Module">
       <created>1623449414572</created>
