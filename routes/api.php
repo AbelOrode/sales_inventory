@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\StaffController;
 use App\Http\Controllers\Api\SupplierController;
@@ -29,4 +30,5 @@ Route::group([
 
 Route::ApiResource('/staff', StaffController::class);
 Route::ApiResource('/supplier', SupplierController::class);
+Route::ApiResource('/category', CategoryController::class);
 Route::ApiResource('/product', ProductController::class);

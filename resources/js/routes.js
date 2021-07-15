@@ -20,6 +20,11 @@ let storeSupplier = require('./components/supplier/create.vue').default;
 let allSuppliers = require('./components/supplier/index.vue').default;
 let editSupplier = require('./components/supplier/edit.vue').default;
 
+let storeCategory = require('./components/category/create.vue').default;
+let allCategory = require('./components/category/index.vue').default;
+let editCategory = require('./components/category/edit.vue').default;
+
+
 export const routes = [
     {path: '/', component: LoginPage, name: '/'},
     {path: '/register', component: RegisterPage, name: 'register'},
@@ -34,6 +39,10 @@ export const routes = [
 
     {path: '/supplier', component: storeSupplier, name: 'createSupplier'},
     {path: '/suppliers', component: allSuppliers, name: 'allSuppliers'},
-    {path: '/supplier/:id', component: editSupplier, name: 'editSupplier'}
+    {path: '/supplier/:id', component: editSupplier, name: 'editSupplier'},
+
+    {path: '/category', component: storeCategory, name: 'storeCategory'},
+    {path: '/allCategory', component: allCategory, name: 'allCategory'},
+    {path: '/category/:id', component: editCategory, name: 'editCategory'}
 
 ]
