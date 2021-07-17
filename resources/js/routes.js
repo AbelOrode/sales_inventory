@@ -24,6 +24,10 @@ let storeCategory = require('./components/category/create.vue').default;
 let allCategory = require('./components/category/index.vue').default;
 let editCategory = require('./components/category/edit.vue').default;
 
+let storeProduct = require('./components/product/create.vue').default;
+let allProduct = require('./components/product/index.vue').default;
+let editProduct = require('./components/product/edit.vue').default;
+
 
 export const routes = [
     {path: '/', component: LoginPage, name: '/'},
@@ -43,6 +47,10 @@ export const routes = [
 
     {path: '/category', component: storeCategory, name: 'storeCategory'},
     {path: '/allCategory', component: allCategory, name: 'allCategory'},
-    {path: '/category/:id', component: editCategory, name: 'editCategory'}
+    {path: '/category/:id', component: editCategory, name: 'editCategory'},
+
+    {path: '/', component: storeProduct, name: 'storeProduct'},
+    {path: '/allProduct', component: allProduct, name: 'allProduct'},
+    {path: '/product/:id', component: editProduct, name: 'editProduct'},
 
 ]

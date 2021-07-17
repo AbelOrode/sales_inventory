@@ -146,10 +146,12 @@ class SupplierController extends Controller
                 $img_path = $img->image;
                 $done = unlink($img_path);
                 $user = DB::table('suppliers')->where('id', $id)->update($data); // Upload new image to the database if old image has been modified
+                return response()->json("Record updated successfully");
             }else{
                 $oldPhoto = $request->photo;
                 $data['photo'] = $oldPhoto;
                 $user = DB::table('suppliers')->where('id', $id)->update($data);
+                return response()->json("Record updated successfully");
             }
         }
     }

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Expense;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class CategoryController extends Controller
+class ExpenseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = DB::table('categories')->get();
-        return response()->json($category);
+        $expense = Expense::all();
+        return response()->json($expense);
     }
 
     /**
@@ -39,15 +40,19 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category_name' => 'required|min:6'
+            'details' => 'required',
+            'amount' => 'required',
+
         ]);
 
-        $category = new Category();
-        $category->category_name = $request->category_name;
+        $data = new Expense();
+        $data->details = $request->details;
+        $data->amount = $request->amount;
+        $data->expense_date = date('d/m/y');
 
-        $category->save();
+        $data->save();
 
-        return response()->json("Record created successfully");
+        return response()->json("Record entered successfully");
     }
 
     /**
@@ -58,8 +63,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::findOrFail($id);
-        return response()->json($category);
+        $data = Expense::findOrFail($id);
+        return response()->json($data);
     }
 
     /**
@@ -82,10 +87,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $data = array();
-       $data['category_name'] = $request->category_name;
-       DB::table('categories')->where('id', $id)->update($data);
-       return response()->json("Record updated successfully");
+
+        $data = array();
+        $data['details'] = $request->details;
+        $data['amount'] = $request->amount;
+        DB::table('expenses')->where('id', $id)->update($data);
+
+
+        return response()->json('record updated successfully');
+
+
     }
 
     /**
@@ -96,9 +107,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
-        return response()->json("Record deleted successfully");
-
-
+        Product::findOrFail($id)->delete;
     }
 }

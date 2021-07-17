@@ -67,7 +67,7 @@
 
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-outline-warning text-black-50 btn-block">Create</button>
+                                            <button type="submit" class="btn btn-outline-warning text-black-50 btn-block">Update</button>
                                         </div>
                                         <hr>
                                     </form>
@@ -79,7 +79,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -132,7 +131,7 @@
             },
             editSupplier(){
                 let id = this.$route.params.id;
-                axios.patch('/api/supplier', this.form)
+                axios.patch('/api/supplier/'+id, this.form)
                     .then(() =>{
                         this.$router.push({name: 'allSuppliers'})
                         this.$noty.success("Record updated  successfully")
